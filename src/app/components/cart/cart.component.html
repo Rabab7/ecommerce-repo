@@ -17,14 +17,14 @@
                         <img [src]="item.product.imageCover" class="w-full" alt="">
                     </div>
         
-                    <div class="p_details  col-span-8 p-12">
-                        <h2 class="font-semibold text-xl">{{item.product.title.split(' ').slice(0,2).join(' ')}}</h2>
-                        <h3 class="text-green-500 my-4 font-bold text-2xl capitalize">price : {{item.price | currency:'GBP'}}</h3>
-                        <p class="capitalize font-semibold text-xl "><span class="mr-3 text-green-500 fa-xl cursor-pointer" (click)="removeItemFromCart(item.product._id)"><i class="fa-solid fa-trash"></i></span> remove</p>
+                    <div class="p_details col-span-12  md:col-span-8 p-12">
+                        <h2 class="font-semibold text-xl whitespace-nowrap">{{item.product.title.split(' ').slice(0,2).join(' ')}}</h2>
+                        <h3 class="text-green-500 my-4 font-bold text-2xl capitalize whitespace-nowrap">price : {{item.price | currency:'GBP'}}</h3>
+                        <p class="capitalize font-semibold text-xl whitespace-nowrap "><span class="mr-3 text-green-500 fa-xl cursor-pointer" (click)="removeItemFromCart(item.product._id)"><i class="fa-solid fa-trash"></i></span> remove</p>
         
                     </div>
         
-                    <div class="item_quan col-span-2 p-3 flex text-4xl justify-between items-center">
+                    <div class="item_quan col-span-12 md:col-span-2 p-3 flex text-4xl justify-between items-center">
                         <span class=" text-green-500 cursor-pointer" (click)="updateItemQuantity(item.product._id , item.count + 1)"><i class="fa-solid fa-circle-plus "></i></span>
                         <span>{{item.count}}</span>
                         @if (item.count > 1)
