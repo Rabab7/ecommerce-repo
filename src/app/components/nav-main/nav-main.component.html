@@ -54,7 +54,7 @@
           <li><a routerLink="products" routerLinkActive="bg-green-500 p-3 rounded-lg" (click)="closeMenu()" class="text-black capitalize text-decoration-none">products</a></li>
           <li><a routerLink="brands" routerLinkActive="bg-green-500 p-3 rounded-lg" (click)="closeMenu()" class="text-black capitalize text-decoration-none">brands</a></li>
           <li class="">
-            <a class="nav-link relative" [routerLink]="'/cart'">
+            <a class="nav-link relative" (click)="closeMenu()" [routerLink]="'/cart'">
               <i class="fa-solid fa-cart-shopping fa-2x"></i>
               <span class="absolute right-0 -top-4 bg-green-500 text-white px-2  rounded-lg">{{numCartItems}}</span>
             </a>
