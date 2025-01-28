@@ -4,7 +4,7 @@
         <div class="container  mx-auto flex justify-center items-center ">
             
               
-            <form class="shadow-2xl shadow-slate-500 bg-slate-200 p-3 w-1/2 " [formGroup]="addressForm" (ngSubmit)="payOrder()"  >
+            <form class="shadow-2xl shadow-slate-500 bg-slate-200 p-3 w-10/12 lg:w-1/2 " [formGroup]="addressForm" (ngSubmit)="payOrder()"  >
                 
                 <div class="my-3">
                     <label for="details" class="mb-2  capitalize font-bold">details :</label>
@@ -59,7 +59,7 @@
                 @if (messageText) 
                 {
                     <div class="my-4  ">
-                        <p class="text-center w-1/2 font-bold text-lg rounded-lg bg-teal-500 mx-auto p-2">{{messageText}}</p>
+                        <p class="text-center w-1/2 font-bold text-lg rounded-lg bg-teal-500 mx-auto p-2 whitespace-nowrap">{{messageText}}</p>
                     </div>
 
                 }
@@ -67,7 +67,7 @@
 
 
                 <button
-                [disabled]="addressForm.invalid" type="submit" class="w-1/2 cursor-pointer  p-2 shadow-2xl  rounded-lg text-2xl block mx-auto text-black font-bold capitalize"
+                [disabled]="addressForm.invalid" type="submit" class="w-1/2 cursor-pointer whitespace-nowrap  p-2 shadow-2xl  rounded-lg text-2xl block mx-auto text-black font-bold capitalize"
                 [ngClass]="{
                     'bg-green-500  hover:shadow-none': !addressForm.invalid, 
                     'bg-gray-300 ': addressForm.invalid
