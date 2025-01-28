@@ -1,0 +1,65 @@
+<nav class="py-4 fixed left-0 bg-gray-100 right-0 top-0 z-50 shadow-md">
+  <div class="max-w-screen-xl mx-auto flex justify-between items-center px-4">
+      <!-- Logo -->
+      <h1 class="text-3xl font-bold uppercase cursor-pointer" routerLink="home">
+          <img src="./assets/images/freshcart-logo.svg" routerLink="home" alt="Logo">
+      </h1>
+      <!-- Navigation Links (Desktop) -->
+      <ul class="hidden lg:flex space-x-8 text-lg font-semibold px-16">
+          <li><a routerLink="home" routerLinkActive="bg-green-500 p-3 rounded-lg" class="text-black capitalize text-decoration-none">home</a></li>
+          <li><a routerLink="cart" routerLinkActive="bg-green-500 p-3 rounded-lg" class="text-black capitalize text-decoration-none">cart</a></li>
+          <li><a routerLink="wishList" routerLinkActive="bg-green-500 p-3 rounded-lg" class="text-black capitalize text-decoration-none">wish list</a></li>
+          <li><a routerLink="categories" routerLinkActive="bg-green-500 p-3 rounded-lg" class="text-black capitalize text-decoration-none">categories</a></li>
+          <li><a routerLink="products" routerLinkActive="bg-green-500 p-3 rounded-lg" class="text-black capitalize text-decoration-none">products</a></li>
+          <li><a routerLink="brands" routerLinkActive="bg-green-500 p-3 rounded-lg" class="text-black capitalize text-decoration-none">brands</a></li>
+      </ul>
+
+     <!-- social media Links (Desktop) -->
+      <ul class="hidden lg:flex space-x-5 mt-3">
+          <li>
+            <a class="nav-link relative" [routerLink]="'/cart'">
+              <i class="fa-solid fa-cart-shopping fa-2x"></i>
+              <span class="absolute right-0 -top-4 bg-green-500 text-white px-2  rounded-lg">{{numCartItems}}</span>
+            </a>
+          </li>
+          <li><a class="nav-link  text-xl"><i class="fa-brands fa-facebook"></i></a></li>
+          <li><a class="nav-link text-xl"><i class="fa-brands fa-linkedin"></i></a></li>
+          <li><a class="nav-link text-xl"><i class="fa-brands fa-tiktok"></i></a></li>
+          <li><a class="nav-link text-xl"><i class="fa-brands fa-instagram"></i></a></li>
+          <li><a class="nav-link text-xl"><i class="fa-brands fa-twitter"></i></a></li>
+          <li><a class="nav-link  text-xl"><i class="fa-brands fa-youtube"></i></a></li>
+      </ul>
+
+      
+      <a (click)="logout()" class="hidden lg:block text-black text-2xl capitalize cursor-pointer font-semibold ml-6">log out</a>
+
+      <!-- Hamburger Menu (Mobile) -->
+      <button
+          class="text-2xl lg:hidden px-2 py-1 border-2 border-gray-800 rounded-lg"
+          aria-label="Toggle Menu"
+          (click)="toggleMenu()">
+          <i class="fa-solid fa-bars fa-1x"></i>
+      </button>
+  </div>
+
+  <!-- Dropdown Menu (Mobile) -->
+  <div
+      class="absolute left-0 top-20 bg-gray-100 w-full lg:hidden transition-transform"
+      [class.hidden]="!isMenuOpen">
+      <ul class="dropmenu space-y-4 text-lg font-semibold px-6 py-5">
+          <li><a routerLink="home" routerLinkActive="bg-green-500 p-3 rounded-lg" (click)="closeMenu()" class="text-black capitalize text-decoration-none">home</a></li>
+          <li><a routerLink="cart" routerLinkActive="bg-green-500 p-3 rounded-lg" (click)="closeMenu()" class="text-black capitalize text-decoration-none">cart</a></li>
+          <li><a routerLink="wishList" routerLinkActive="bg-green-500 p-3 rounded-lg" (click)="closeMenu()" class="text-black capitalize text-decoration-none">wish list</a></li>
+          <li><a routerLink="categories" routerLinkActive="bg-green-500 p-3 rounded-lg" (click)="closeMenu()" class="text-black capitalize text-decoration-none">categories</a></li>
+          <li><a routerLink="products" routerLinkActive="bg-green-500 p-3 rounded-lg" (click)="closeMenu()" class="text-black capitalize text-decoration-none">products</a></li>
+          <li><a routerLink="brands" routerLinkActive="bg-green-500 p-3 rounded-lg" (click)="closeMenu()" class="text-black capitalize text-decoration-none">brands</a></li>
+          <li class="">
+            <a class="nav-link relative" [routerLink]="'/cart'">
+              <i class="fa-solid fa-cart-shopping fa-2x"></i>
+              <span class="absolute right-0 -top-4 bg-green-500 text-white px-2  rounded-lg">{{numCartItems}}</span>
+            </a>
+          </li>
+          <li><a (click)="logout()" class="text-black">log out</a></li>
+      </ul>
+  </div>
+</nav>

@@ -1,0 +1,31 @@
+
+
+<section class="py-24  " >
+    <div class="max-w-screen-xl mx-auto flex justify-center   ">
+        <div class="container mx-auto  ">
+            <div class="grid grid-cols-1  gap-5 p-5 ">
+                @for (address of userAddressesData ; track address._id) 
+                {
+                    <div  class="shadow-md shadow-green-600 hover:shadow-none mx-auto border-2 border-green-500 p-2 group w-1/2" >
+                        <div class="product-caption mt-3">
+                            <h2 class="font-semibold p-1 ">{{address.city}}</h2>
+                            <p class="font-bold text-xl text-green-500 mt-2  p-1">{{address.details}}</p>
+                            <h2 class="font-semibold p-1 ">{{address.phone}}</h2>
+                            
+                        </div>
+                        <button  
+                         class="w-full bg-green-500 shadow-2xl hover:shadow-none font-semibold text-lg rounded-lg p-1 mt-3"
+                         (click)="removeSpecificAddress(address._id)"
+                         >remove address
+                       </button>
+                       </div>
+
+                        
+
+                    
+                }
+
+            </div>
+        </div>
+    </div>
+</section>

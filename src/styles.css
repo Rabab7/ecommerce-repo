@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .form-control{
+        @apply block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-200 focus:border-indigo-400
+    }
+    .valid{
+        @apply border-green-500 focus:ring-green-500  
+    }
+    .invalid{
+        @apply border-red-500 focus:ring-red-500
+    }
+    .rating-color{
+        @apply text-yellow-500
+    }
+    
+}

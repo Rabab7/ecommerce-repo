@@ -1,0 +1,38 @@
+<nav class="py-4 fixed left-0 bg-gray-100 right-0 top-0 z-50 shadow-md">
+    <div class="max-w-screen-xl mx-auto flex justify-between items-center px-5">
+      <!-- Logo -->
+      <div>
+        <a routerLink="start-framework">
+          <img src="./assets/images/freshcart-logo.svg" alt="Logo" class="h-10 ">
+        </a>
+      </div>
+  
+      <!-- Navigation Links (Desktop) -->
+      <ul class="hidden lg:flex items-center space-x-8 text-lg font-semibold">
+        <li>
+          <a routerLink="login" routerLinkActive="bg-green-500 p-3 rounded-lg" class="text-black text-decoration-none capitalize">Login</a>
+        </li>
+        <li>
+          <a routerLink="register" routerLinkActive="bg-green-500 p-3 rounded-lg" class="text-black text-decoration-none capitalize">Register</a>
+        </li>
+      </ul>
+  
+      <!-- Hamburger Menu (Mobile) -->
+      <button class="lg:hidden px-2 py-1 text-2xl text-gray-700 border-2 border-gray-800 rounded-lg" (click)="toggleMenu()">
+        <i class="fa-solid fa-bars fa-1x"></i>
+      </button>
+    </div>
+  
+    <!-- Dropdown Menu (Mobile) -->
+    <div class="lg:hidden bg-gray-100 top-28 w-full" [class.hidden]="!isMenuOpen">
+      <ul class="flex flex-col space-y-4 px-6 py-3 text-lg font-semibold">
+        <li>
+          <a routerLink="login" routerLinkActive="bg-green-500 p-3 rounded-lg" class="text-black text-decoration-none capitalize" (click)="closeMenu()">Login</a>
+        </li>
+        <li>
+          <a routerLink="register" routerLinkActive="bg-green-500 p-3 rounded-lg" class="text-black text-decoration-none capitalize" (click)="closeMenu()">Register</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  

@@ -1,0 +1,24 @@
+@if (userOrders) {
+    <section class="py-40">
+      <div class="max-w-screen-xl mx-auto flex justify-center">
+        <div class="container mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5 p-5">
+            @for (order of userOrders; track order._id) {
+              @for (item of order.cartItems; track item._id) {
+                <div class="shadow-md shadow-green-500 hover:shadow-none border-2 border-green-500 p-2">
+                  <div class="product-img">
+                    <img [src]="item.product.imageCover" class="w-full h-80" alt="Product Image">
+                  </div>
+                  <div class="product-caption mt-3">
+                    <h1 class="font-bold text-xl text-green-500 mt-3 p-1">
+                      {{ item.product.title.split(' ').slice(0, 2).join(' ') }}
+                    </h1>
+                  </div>
+                </div>
+              }
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  } 

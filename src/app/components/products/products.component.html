@@ -1,0 +1,63 @@
+<section class="pt-40    ">
+    <div class="max-w-screen-xl mx-auto flex justify-center   ">
+        <div class="container mx-auto   ">
+            <form >
+                <div class="">
+                    <input [(ngModel)]="searchkey"  type="text" name="searchkey" placeholder="search...." class=" search mx-auto form-control w-9/12 border-2 border-zinc-600 focus:border-zinc-500 placeholder:text-zinc-700">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-24  " >
+    <div class="max-w-screen-xl mx-auto flex justify-center   ">
+        <div class="container mx-auto  ">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5 p-5 " #products>
+                @for (product of productsData | search:searchkey; track product._id) 
+                {
+                    <div  class="shadow-md shadow-green-600 hover:shadow-none  border-2 border-green-500 p-2 group" >
+                       <div [routerLink]="['/productDetails' , product._id]">
+                        <div class="product-img">
+                            <img [src]="product.imageCover" class="w-full" alt="{{product.title}}">
+                        </div>
+                        <div class="product-caption mt-3">
+                            <h2 class="font-semibold p-1 ">{{product.category.name}}
+                                <span  class="hidden">{{product._id}}</span>
+                            </h2>
+                            <h1 class="font-bold text-xl text-green-500 mt-2  p-1">{{product.title.split(' ').slice(0,2).join(' ')}}</h1>
+                            <div class="flex justify-between  items-center my-3 ">
+                                <div>
+                                   <span class="font-semibold whitespace-nowrap ">{{product.price}} <span class="text-green-400">EGP</span></span>
+                                </div>
+                                <div class="sm:whitespace-nowrap">
+                                    @for(item of [1,2,3,4,5].slice(0 , product.ratingsAverage) ;track $index){<span class=""><i class="fa-solid fa-star rating-color"></i></span>}
+                                    @if (product.ratingsAverage % 1 != 0) {<i class="fa-regular fa-star-half-stroke rating-color "></i>}
+                                    <span class="font-semibold ">{{product.ratingsAverage}}</span>
+                                </div>
+                            </div>
+                        </div>
+                       </div>
+                       <div class="flex justify-end my-4 p-3 " >
+                            
+                           
+                        <i class="fa-solid fa-heart fa-xl cursor-pointer"
+                        (click)="addToWishlist(product._id)"
+                        [ngClass]="{
+                            'text-red-500': product.heartIcon,
+                            'text-zinc-950' : !product.heartIcon
+                        }"
+                        
+                        ></i>
+                    </div>
+
+                        <button (click)="addToCart( product._id)" 
+                        class="w-full bg-green-500 opacity-0 font-semibold text-lg rounded-lg p-1 mt-3 translate-y-[120%] group-hover:translate-y-[0%] group-hover:opacity-100 transition-transform duration-200">Add to cart +</button>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</section>

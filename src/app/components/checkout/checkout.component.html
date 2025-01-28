@@ -1,0 +1,89 @@
+<section class="py-28  ">
+    <div class="max-w-screen-xl mx-auto    ">
+        <h2 class="text-3xl font-extrabold text-center my-5 capitalize">shipping address</h2>
+        <div class="container  mx-auto flex justify-center items-center ">
+            
+              
+            <form class="shadow-2xl shadow-slate-500 bg-slate-200 p-3 w-1/2 " [formGroup]="addressForm" (ngSubmit)="payOrder()"  >
+                
+                <div class="my-3">
+                    <label for="details" class="mb-2  capitalize font-bold">details :</label>
+                     <textarea name="" id="details" class="form-control" placeholder="details" formControlName="details"
+                    [ngClass]="{
+                       'valid':!addressForm.get('details')?.errors  && (addressForm.get('details')?.touched ||  addressForm.get('details')?.dirty ),
+                       'invalid':addressForm.get('details')?.errors  && (addressForm.get('details')?.touched ||  addressForm.get('details')?.dirty ) ,
+                    }"
+                    ></textarea> 
+                    @if(addressForm.get('details')?.errors && addressForm.get('details')?.touched){
+                        <div class="bg-red-400 text-lg p-2 rounded my-3 font-semibold shadow-lg">
+                            @if(addressForm.get('details')?.getError('required')){<p>details must be required</p>}
+                        </div>
+                    }
+                   
+                </div>
+
+            
+                <div class="my-4">
+                    <label for="phone" class="mb-2  capitalize   font-bold">phone:</label>
+                    <input type="tel" id="phone" class="form-control" formControlName="phone" placeholder="ex:123123"
+                    [ngClass]="{
+                        'valid':!addressForm.get('phone')?.errors  && (addressForm.get('phone')?.touched ||  addressForm.get('phone')?.dirty ),
+                        'invalid':addressForm.get('phone')?.errors  && (addressForm.get('phone')?.touched ||  addressForm.get('phone')?.dirty ) ,
+                    }"
+                    >
+                    @if(addressForm.get('phone')?.errors && addressForm.get('phone')?.touched){
+                        <div class="bg-red-400 text-lg p-2 rounded my-3 font-semibold shadow-lg">
+                            @if(addressForm.get('phone')?.getError('required')){<p>phone must be required</p>}
+                        </div>
+                    }
+                   
+                </div>
+
+
+                <div class="my-4">
+                    <label for="city" class="mb-2  capitalize  font-bold">city:</label>
+                    <input type="text" id="city" class="form-control" formControlName="city" placeholder="ex:Asyut"
+                    [ngClass]="{
+                        'valid':!addressForm.get('city')?.errors  && (addressForm.get('city')?.touched ||  addressForm.get('city')?.dirty ),
+                        'invalid':addressForm.get('city')?.errors  && (addressForm.get('city')?.touched ||  addressForm.get('city')?.dirty ) ,
+                     }"
+                    >
+                    @if(addressForm.get('city')?.errors && addressForm.get('city')?.touched){
+                        <div class="bg-red-400 text-lg p-2 rounded my-3 font-semibold shadow-lg">
+                            @if(addressForm.get('city')?.getError('required')){<p>city name must be required</p>}
+                        </div>
+                    }
+                    
+                </div>
+
+                @if (messageText) 
+                {
+                    <div class="my-4  ">
+                        <p class="text-center w-1/2 font-bold text-lg rounded-lg bg-teal-500 mx-auto p-2">{{messageText}}</p>
+                    </div>
+
+                }
+
+
+
+                <button
+                [disabled]="addressForm.invalid" type="submit" class="w-1/2 cursor-pointer  p-2 shadow-2xl  rounded-lg text-2xl block mx-auto text-black font-bold capitalize"
+                [ngClass]="{
+                    'bg-green-500  hover:shadow-none': !addressForm.invalid, 
+                    'bg-gray-300 ': addressForm.invalid
+                }" 
+                >pay now
+                    @if (loading === true) {
+                        <span><i class="fa-solid fa-circle-notch fa-spin"></i></span>
+                    }
+                </button>
+
+            </form>
+
+           
+            
+        </div>
+        
+    </div>
+    
+</section>
